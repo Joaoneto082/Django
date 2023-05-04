@@ -37,3 +37,9 @@ class Avaliacao(Base):
 
     def __str__(self):
         return f'{self.nome} avaliou o curso {self.curso} com a nota {self.avaliacao}'
+
+class Depoimento(models.Model):
+    texto = models.TextField()
+    
+    def __str__(self):
+        return f"Depoimento {self.id}: {self.texto[:50]}..."
