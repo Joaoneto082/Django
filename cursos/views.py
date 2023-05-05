@@ -1,15 +1,18 @@
 # cursos/views.py
 
 from django.shortcuts import render
-from .models import Depoimento
-from .forms import DepoimentoForm
+from .models import Contato
+from .forms import ContatoForm
 
 def home(request):
-    depoimento_form = DepoimentoForm(request.POST or None)
-    if request.method == 'POST' and depoimento_form.is_valid():
-        depoimento_form.save()
+    if request.method == 'POST':
+        form = ContatoForm(request.POST)
+        if form.is_valid():
+            form.save()
+    else:
+        form = ContatoForm()
     
-    return render(request, 'home.html', {'depoimento_form': depoimento_form})
+    return render(request, 'home.html', {'form': form})
 
 
 

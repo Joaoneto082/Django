@@ -1,9 +1,9 @@
 # cursos/forms.py
 
 from django import forms
-from .models import Depoimento
+from .models import Contato
 
-class DepoimentoForm(forms.ModelForm):
+class ContatoForm(forms.ModelForm):
     class Meta:
-        model = Depoimento
-        fields = ['texto']
+        model = Contato
+        fields = ['nome', 'email', 'telefone', 'mensagem']
